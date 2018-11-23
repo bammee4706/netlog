@@ -23,7 +23,10 @@ export class UsersService {
       Apikey: 'NetLogApi',
       fn: 'SelectAll'
     });
-    
     return result.data; 
+  }
+  async insertUser(newuser){
+    let result = await axios.post(this.apiurl,newuser);
+    return result.data;
   }
 }
