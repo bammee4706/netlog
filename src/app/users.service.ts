@@ -26,7 +26,17 @@ export class UsersService {
     return result.data; 
   }
   async insertUser(newuser){
-    let result = await axios.post(this.apiurl,newuser);
-    return result.data;
+      newuser.Apikey = 'NetLogApi';
+      newuser.fn = 'Insert';
+     //console.log(newuser);
+      let result = await axios.post(this.apiurl,newuser);
+      return result.data;
   }
+  async updateUser(edituser){
+    edituser.Apikey = 'NetLogApi';
+    edituser.fn = 'Update';
+    console.log(edituser);
+    let result = await axios.post(this.apiurl,edituser);
+    return result.data;
+}
 }
